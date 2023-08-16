@@ -5,17 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chubby Buddies</title>
     <link rel="stylesheet" href="./css/main.css">
+    <link href="https://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/arcade-classic');
+    </style>         
 </head>
-<body>
-    <h1>Chubby Buddies</h1>
-    <div>
-        <div id="panel">
-            <div id="background"></div>
+<body id="start-background">
+    <h1>Chubby Buddies</h1>  
+    <div class="chubbies">
+        <img id="um" src="./images/chubby-1.gif">
+        <img src="./images/chubby-3.gif">
+        <img src="./images/chubby-2.gif"> 
+    </div> 
+    <div id="instructions">
+        <img src ="./images/instructions-panel.png">
+        <div>
+            <img class="flowers" id="first-flower" src="./images/groundobst1.gif">
+            <img class="flowers" id="second-flower" src="./images/groundobst2.gif">
+            <a href="./game.html">
+                <button id="start" type="button">Start!</button>
+            </a>
+            <h2>Instructions</h2>
+            <p id="first-p">Our friend Chubby loves flowers and he would hate stepping on them.</p>
+            <p id="second-p">PRESS 1 to JUMP and avoid destroying the lovely Flowers!</p>
         </div>
-    </div>
         
-
-    <script src="./js/main.js"></script>
-   
+    </div>
 </body>
 </html>

@@ -1,5 +1,7 @@
+body {
+    background-color: #D8BFD8;
+}
 h1 {
-    background-color: plum;
     display: flex;
     justify-content: center;
     margin: 0 auto;
@@ -7,6 +9,9 @@ h1 {
     padding-bottom: 40px;
     width: auto;
     text-align: center;
+    font-family: 'ArcadeClassic', sans-serif;
+    color: #2F4F4F;
+    word-spacing: 2mm;
     
 }
 
@@ -29,6 +34,7 @@ h1 {
     position: relative;
     margin: 0 auto;
     overflow: hidden;
+    
 }
 
 
@@ -36,15 +42,172 @@ h1 {
     position: absolute;
 }
 
-#chubbyTwo {
-    background-color: rgb(80, 138, 185);
-    position: absolute;
-}
-#chubbyThree {
-    background-color: rgb(155, 50, 111);
-    position: absolute;
-}
+
+
 
 .obstacles {
     position: absolute;
+}
+
+
+#scoreDisplay {
+    position: absolute;
+    top: 40px; 
+    left: 1040px; 
+    background-color: #FFF5EE;
+    color:#696969;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    font-family: 'ArcadeClassic', sans-serif;
+                                                
+}
+
+/*gameover style*/
+#game-over {
+    position: absolute;
+    top: 13%; 
+    left: 34%; 
+    background-color: #D8BFD8;
+}
+
+#play-again, #main-menu {
+    position: absolute;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eea2a2; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1; 
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#play-again {
+    top: 60%;
+}
+
+#main-menu {
+    top: 65%; 
+}
+
+
+#scoreContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: 	#eea2a2;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 2000;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    
+}
+
+/* index HTML */
+
+#start-background {
+    display: flex;
+}
+
+
+.chubbies {
+    position: absolute;
+    top: 10%; 
+    left: 47.4%; 
+    background-color: #D8BFD8;
+    scale: 2;
+    image-rendering: pixelated;
+
+}
+
+#instructions{
+    position: absolute;
+    top: 20%; 
+    left: 27%; 
+    background-color: #D8BFD8;
+}
+
+#start {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eea2a2; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1; 
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+h2 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1; 
+    font-family: 'ArcadeClassic', sans-serif;
+    color: white;
+}
+
+p{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1; 
+    font-family: 'ArcadeClassic', sans-serif;
+    color: black; 
+    text-align: center;
+    word-spacing: 1mm;
+}
+
+#first-p{
+    top: 30%;
+}
+
+#second-p {
+    top: 40%;  
+}
+
+.flowers {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100; 
+}
+
+#first-flower {
+    top: 60%;
+    left: 20%;
+}
+
+#second-flower {
+    top: 59%;
+    left: 70%;
 }

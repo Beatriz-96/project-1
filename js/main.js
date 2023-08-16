@@ -3,12 +3,13 @@ class Game {
         this.obstaclesArr = [];
         this.progress = 0;
         this.maxSpawnInterval = 5000;
-        this.minSpawnInterval = 2000;
+        this.minSpawnInterval = 1000;
         this.obstMinSpeed = 15;
         this.obstMaxSpeed = 85;
         this.gameDuration = 24000; //cicles of 25ms;
         this.chubbyOne = new Chubby("chubbyOne", "./images/chubby-1.gif");
         this.background = new Background("background", "./images/chubby_bg1.png")
+        this.score = 0;
     }
 
     update() {
@@ -34,7 +35,11 @@ class Game {
                 this.chubbyOne.positionY < obstacleInstance.positionY + obstacleInstance.height &&
                 this.chubbyOne.positionY + this.chubbyOne.height > obstacleInstance.positionY
             ) {
-                console.log("GAME OVER!")
+                this.updateScoreDisplay()
+                const finalScoreDisplay = "Score";
+                const defaultScore = game.score;
+                localStorage.setItem(finalScoreDisplay, defaultScore.toString());
+                location.href = "./gameover.html"
             }
         });
     }
@@ -51,6 +56,8 @@ class Game {
         let filteredArr = this.obstaclesArr.filter((obstacleInstance) => {
             if (obstacleInstance.positionX < -obstacleInstance.width) {
                 obstacleInstance.domElement.remove();
+                this.score += 10;
+                this.updateScoreDisplay();
                 return false;
             } else {
                 return true;
@@ -58,7 +65,15 @@ class Game {
         });
         this.obstaclesArr = filteredArr;
     }
-}
+    updateScoreDisplay() {
+        const scoreDisplay = document.getElementById("scoreDisplay");
+        scoreDisplay.textContent = `Score: ${this.score}`;
+    }
+    finalScore(){
+        return this.score;
+    }   
+};
+
 
 const groundY = 92;
 
@@ -87,7 +102,7 @@ class Background {
         parentElm.appendChild(element);
 
         return element;
-    };
+    }
     moveLeft(speed) {
         this.positionX -=speed;
         if (this.positionX < -this.width) {
@@ -96,7 +111,7 @@ class Background {
         this.backgroundElement.style.left = this.positionX + "px";
         this.duplicateElement.style.left = this.positionX + this.width + "px";
     }
-}
+};
 
 
 class Chubby {
@@ -112,7 +127,6 @@ class Chubby {
         this.imgScale = 1.5;
         this.imageOffsetX = ((this.imgScale * this.width) - this.width)/2;
         this.imageOffsetY = ((this.imgScale * this.height) - this.height)/2;
-
 
 
         this.domElement = null;
@@ -147,10 +161,7 @@ class Chubby {
         }
         this.domElement.style.bottom = (this.positionY - this.imageOffsetY) + "px";
     }
-}
-
-
-
+};
 
 
 class Obstacle {
@@ -166,9 +177,8 @@ class Obstacle {
 
         this.selectedImagesSrc = this.imageSrcArray[Math.floor(Math.random() * this.imageSrcArray.length)];
 
-        this.createDomElement();
-        
-    };
+        this.createDomElement();        
+    }
 
     createDomElement() {
         this.domElement = document.createElement("img");
@@ -181,7 +191,7 @@ class Obstacle {
 
         const parentElm = document.getElementById("panel");
         parentElm.appendChild(this.domElement);
-    };
+    }
     moveLeft(speed) {
         this.positionX -=speed;
         this.domElement.style.left = this.positionX + "px";
@@ -189,29 +199,23 @@ class Obstacle {
 };
 
 
-
-
 const game = new Game();
+
 
 setInterval(() => {
     game.update()
 }, 25);
 
 
-
 game.startObstacleSpawning();
-
-
-
 
 
 document.addEventListener("keydown", (jump) => {
     if (jump.key === "1") {
         game.chubbyOne.jump();
-        console.log("pressed key");
-    } /*else if (jump.key === "2") {
-        chubbyTwo.jump();
-        console.log("pressed key");
-    }*/
+        const soundEffect = document.getElementById("sound-effect");
+        soundEffect.play();
+
+    } 
 });
 
