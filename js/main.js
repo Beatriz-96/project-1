@@ -45,7 +45,7 @@ class Game {
     }
     startObstacleSpawning() {
         this.obstacleSpawnTimer = setTimeout (() => {
-            let imageSrcArray = ["./images/cogumelo_318-359650.png", "./images/groundobst1.gif", "./images/groundobst2.gif", "./images/groundobst3.gif" ]
+            let imageSrcArray = ["./images/groundobst1.gif", "./images/groundobst2.gif", "./images/groundobst3.gif" ]
             let newObstacle = new Obstacle ("groundObstacles", imageSrcArray);
             this.obstaclesArr.push(newObstacle);
             
