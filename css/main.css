@@ -110,7 +110,7 @@ h1 {
     z-index: 2000;
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 30px;
     
 }
 
@@ -140,7 +140,7 @@ h1 {
 
 #start {
     position: absolute;
-    top: 65%;
+    top: 75%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -187,11 +187,11 @@ p{
 }
 
 #first-p{
-    top: 30%;
+    top: 25%;
 }
 
 #second-p {
-    top: 40%;  
+    top: 50%;  
 }
 
 .flowers {
@@ -203,11 +203,11 @@ p{
 }
 
 #first-flower {
-    top: 60%;
-    left: 20%;
+    top: 59.5%;
+    left: 15%;
 }
 
 #second-flower {
     top: 59%;
-    left: 70%;
+    left: 75%;
 }

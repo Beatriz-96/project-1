@@ -9,7 +9,7 @@
 <body>
     <img id="game-over" src="./images/gameovertxt.png">
     <div>
-        <div id="scoreContainer">Score: <span id="scoreValue">0</span></div>
+        <div id="scoreContainer"></div>
         <a href="./game.html"> 
             <button id="play-again" type="button">Play Again!</button>
         </a> 
@@ -23,9 +23,9 @@
         const finalScoreDisplay = "Score";
         const score = localStorage.getItem(finalScoreDisplay);
         
-        const scoreElement = document.getElementById("scoreValue");
+        const scoreElement = document.getElementById("scoreContainer");
         if (score !== null) {
-            scoreElement.textContent = score;
+            scoreElement.textContent = "Score: " + score;
         } else {
             scoreElement.textContent = "Score not found in local storage.";
         }
