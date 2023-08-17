@@ -285,7 +285,7 @@ class Obstacle {
         this.height = 40;
         this.scale = 1.5;
         this.domElement = null;
-        this.positionX = 1200;
+        this.positionX = 1800;
         this.positionY = y - 10;
         this.canGivePoints = true;
 
@@ -325,7 +325,3 @@ class Obstacle {
 
 
 const game = new Game();
-
-
-
-
