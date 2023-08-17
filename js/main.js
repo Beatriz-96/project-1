@@ -2,14 +2,28 @@ class Game {
     constructor() {
         this.obstaclesArr = [];
         this.progress = 0;
-        this.maxSpawnInterval = 5000;
-        this.minSpawnInterval = 1000;
-        this.obstMinSpeed = 15;
+        this.maxSpawnInterval = 2000;
+        this.minSpawnInterval = 500;
+        this.obstMinSpeed = 10;
         this.obstMaxSpeed = 85;
         this.gameDuration = 24000; //cicles of 25ms;
         this.chubbyOne = new Chubby("chubbyOne", "./images/chubby-1.gif");
         this.background = new Background("background", "./images/chubby_bg1.png")
         this.score = 0;
+        this.startObstacleSpawning();
+
+        setInterval(() => {
+            this.update()
+        }, 25);
+
+        document.addEventListener("keydown", (jump) => {
+            if (jump.key === "1") {
+                this.chubbyOne.jump();
+                const soundEffect = document.getElementById("sound-effect");
+                soundEffect.play();
+
+            }
+        });
     }
 
     update() {
@@ -25,6 +39,7 @@ class Game {
             obstacleInstance.moveLeft(speed);
         });
         this.cleanUpObstacles();
+
         
     }
     obstacleHit() {
@@ -44,13 +59,13 @@ class Game {
         });
     }
     startObstacleSpawning() {
+        let spawnTime = this.maxSpawnInterval - (this.maxSpawnInterval - this.minSpawnInterval) * this.progress;
         this.obstacleSpawnTimer = setTimeout (() => {
-            let imageSrcArray = ["./images/groundobst1.gif", "./images/groundobst2.gif", "./images/groundobst3.gif" ]
+            let imageSrcArray = ["./images/groundobst1.gif", "./images/groundobst2.gif", "./images/groundobst3.gif", "./images/groundobst4.gif" ]
             let newObstacle = new Obstacle ("groundObstacles", imageSrcArray);
             this.obstaclesArr.push(newObstacle);
-            
             this.startObstacleSpawning();
-        },this.maxSpawnInterval - (this.maxSpawnInterval - this.minSpawnInterval) * this.progress);
+        },spawnTime);
     }
     cleanUpObstacles() {
         let filteredArr = this.obstaclesArr.filter((obstacleInstance) => {
@@ -202,20 +217,5 @@ class Obstacle {
 const game = new Game();
 
 
-setInterval(() => {
-    game.update()
-}, 25);
 
-
-game.startObstacleSpawning();
-
-
-document.addEventListener("keydown", (jump) => {
-    if (jump.key === "1") {
-        game.chubbyOne.jump();
-        const soundEffect = document.getElementById("sound-effect");
-        soundEffect.play();
-
-    } 
-});
 
