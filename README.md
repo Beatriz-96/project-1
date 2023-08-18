@@ -1,5 +1,4 @@
 # Chubby Buddies | Project 1
-![game-screenshot](./images/read-me-screenshot.png)
 
 <br>
 
